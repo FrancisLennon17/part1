@@ -19,7 +19,7 @@ describe('BookService', () => {
     describe('findAll', () => {
         it('finds all the books', () => {
             const books = BookService.findAll();
-            expect(books.length).toBe(9);
+            expect(books.length).toBe(10);
             expect(books[2]).toEqual(
                 {
                     'isbn': '9781593277574',
@@ -36,7 +36,7 @@ describe('BookService', () => {
 
         it('find books by a particular author', () => {
             const books = BookService.findAll('Robert C. Martin');
-            expect(books.length).toBe(1);
+            expect(books.length).toBe(2);
             expect(books[0]).toEqual(
                 {
                     'isbn': '9780132350884',
@@ -57,8 +57,8 @@ describe('BookService', () => {
             const beforeDeleteBooks = BookService.findAll();
             const deleteCount = BookService.deleteBook('9781593277574');
             const afterDeleteBooks = BookService.findAll();
-            expect(beforeDeleteBooks.length).toBe(9);
-            expect(afterDeleteBooks.length).toBe(8);
+            expect(beforeDeleteBooks.length).toBe(10);
+            expect(afterDeleteBooks.length).toBe(9);
             expect(deleteCount).toBe(1);
         });
         it('does not delete a book given an invalid ISBN', () => {
