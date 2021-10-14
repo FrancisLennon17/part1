@@ -1,28 +1,39 @@
-Coding Challenge
-We have intentionally left these requirements relatively vague to see your approach. 
+# Book Data Back End
 
-Part 1 – Back End
+This is a simple REST API for working with data on books an authors.
 
-Clone this repository and make a pull request with the following content
-https://github.com/FrancisLennon17/part1
+## Running the built code
 
-Create a Rest API in NodeJS (with Typescript) that contains 3 endpoints.
-1.	fetch a list of books.
-2.	Fetch a list of authors
-3.	delete a book
+Running the service is done using the `npm run start` command.
 
-The books should come from a JSON file, that contains 10 books. The fetch endpoint should be filterable by author.
+## Running locally with live code reloading
 
-Part 2 – Front End
+Run in dev mode using the command `npm run dev`
 
-Clone this repository and make a pull request with the following content
-https://github.com/FrancisLennon17/part2
+## API End Points
 
--	Create a React app (with Typescript)
--	Fetch the authors from the API
--	Select an author via the webpage
--	Fetch the list of filtered books by that author from the API
--	Loading spinner in the centre of the screen when the API is fetching
--	Display list of books on the screen
--	Option to delete a book via the API
+| HTTP Verb | URL                         |
+|-----------|-----------------------------|
+| GET       | `/api/v1/authors`           |
+| GET       | `/api/v1/books/:authorName` |
+| DELETE    | `/api/v1/book/:isbn`        |
+ 
+## Environment Variables
 
+The `PORT` environment variable specifies with port to use. Default is 7000. The server looks for a `.env` file.
+
+## Unit Tests
+
+The main functionality is covered by unit tests for the three parts of the service layer. Tests are running using `npm run test`
+
+## Linting & Code Formatting
+
+| Command              | Description                             |
+|----------------------|-----------------------------------------|
+| `npm run lint`       | ESLint the codebase                     |
+| `npm run lint:fix`   | ESLint with `--fix` to fix simple stuff |
+| `npm run prettier`   | Make the code all pretty                |
+
+## Tech Debt
+
+- Non persistence of deletes. Whilst this is implemented with implemented in memory, it has been left for speed of testing. Can be achieved by passing `JSON.stringify(books)` to a write file at the end of the delete method. 
