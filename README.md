@@ -36,4 +36,4 @@ The main functionality is covered by unit tests for the three parts of the servi
 
 ## Tech Debt
 
-- Non persistence of deletes. Whilst this is implemented with implemented in memory, it has been left for speed of testing. Can be achieved by passing `JSON.stringify(books)` to a write file at the end of the delete method.
+- Non persistence of deletes. Whilst this is implemented with implemented in memory, it has been left for speed of testing. Can be achieved by passing `JSON.stringify(books)` to a write file at the end of the delete method. 
